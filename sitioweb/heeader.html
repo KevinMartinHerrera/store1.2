@@ -1,0 +1,39 @@
+
+
+
+<header class="header">
+    <div class="menu margen-interno"> 
+        <div class="logo">
+            <a href="index.php">MiBerriozábal</a>
+        </div>
+        <nav class="nav">
+            <a href="#"><i class="fas fa-home"></i><span class="off">Inicio</span></a>
+            <a href="#"><i class="fa-solid fa-bag-shopping"></i><span class="off">Productos</span></a>
+            <a href="#"><i class="fa-sharp fa-solid fa-comments"></i><span class="off">Servicio al Cliente</span></a>
+            <a href="#"><i class="fa-solid fa-user"></i><span class="off">Nosotros</span></a>
+            <a href="#"><i class="fa-solid fa-phone"></i><span class="off">Contacto</span></a>
+        </nav>
+        <a href="checkout.php" class="btn btn-primary">
+             Carrito<span id="num_cart" class="badbge bg-secondary"><?php echo $num_cart; ?></span></a>
+             <div>
+        <?php
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+        if(!isset($_SESSION['user'])){
+                echo '<a href="login/index.php" class="btn btn-primary">Iniciar sesión</a>';
+        }else{
+            echo '<a href="index.php" class="btn btn-primary" >Salir</a>';
+            session_destroy();
+        }
+        ?>
+        <script>
+          // Detecta el clic en el botón de inicio de sesión y cambia la URL del botón
+            document.getElementById("login-button").addEventListener("click", function() {
+            this.href = "login/index.php";
+            } );
+        </script>
+</div>
+
+    </div>
+</header>
